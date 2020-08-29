@@ -1,6 +1,7 @@
 package Blackjack;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Deck {
 
@@ -19,6 +20,26 @@ public class Deck {
             }
 
         }
+    }
+
+    public void shuffle(){
+        ArrayList<Card> tmpDeck = new ArrayList<Card>();
+        // Need to use random to shuffle
+        Random random = new Random();
+        int randomCardIndex = 0;
+        int originalSize = this.cards.size();
+        for (int i = 0; i < originalSize; i++) {
+            //Generate Random index
+            // Random number generater syntax rand.nextInt((max-min) + 1) + min;
+            randomCardIndex = random.nextInt((this.cards.size()-1 - 0)+1)+0;
+            tmpDeck.add(this.cards.get(randomCardIndex));
+
+            //Remove for original deck
+            this.cards.remove(randomCardIndex);
+
+
+        }
+        this.cards = tmpDeck;
     }
     public String toString(){
         String cardListOutput = "";

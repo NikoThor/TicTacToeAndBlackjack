@@ -8,6 +8,7 @@ public class Blackjack {
         // Generate the deck
         Deck playingdeck = new Deck();
         playingdeck.createFullDeck();
+        playingdeck.shuffle();
         System.out.println(playingdeck);
     }
 }
